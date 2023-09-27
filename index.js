@@ -10,10 +10,16 @@ const js = process.argv[3];
 
 const {question, input, run} = await import(`./src/${packageName}/${js}.js`);
 
-const answer = run(input);
-
 console.log("===============QUESTION===============")
 console.log(question);
 console.log("================ANSWER================");
-console.log(answer);
+if(input instanceof Array){
+    input.forEach((s) => {
+        const answer = run(s);
+        console.log(answer);
+    })
+}else{
+    const answer = run(input);
+    console.log(answer);
+}
 console.log("======================================");
