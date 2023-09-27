@@ -5,7 +5,8 @@ export const question = `문제 설명
 s는 길이가 1 이상, 100이하인 스트링입니다.
 
 입출력 예시
-["abcde", "qwer"]
+"abcde"
+"qwer"
 
 문제 출처 : https://school.programmers.co.kr/learn/courses/30/lessons/12903`;
 export const input = ["abcde", "qwer"];
