@@ -15,9 +15,14 @@ console.log(question);
 console.log("================ANSWER================");
 if(input instanceof Array){
     input.forEach((s) => {
-        const answer = run(s);
-        console.log(answer);
-    })
+        if(s instanceof Array){
+            const answer = run(...s);
+            console.log(answer);
+        }else{
+            const answer = run(s);
+            console.log(answer);
+        }
+    });
 }else{
     const answer = run(input);
     console.log(answer);

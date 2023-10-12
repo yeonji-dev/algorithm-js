@@ -15,14 +15,19 @@ s\tn\tresult
 "a B z"\t4\t"e F d"
 `;
 
-export const input = ["AB", "Z", "a B z"];
-export const run = (arr) => {
-    return [...arr].map((s) => {
-        if(s === " ") return null;
-        else if(s === "z") return "a";
-        else if(s === "Z") return "A";
-        else return String.fromCodePoint(s.codePointAt() + 1);
-    }).join(", ").replaceAll(", ", " ");
-
-
+export const input = [["AB", 1], ["z", 1], ["a B z", 4]];
+export const run = (s, n) => {
+    const upper = Array.from({ length: 26 }, (v, i) => String.fromCharCode(i + 65));
+    const lower = Array.from({ length: 26 }, (v, i) => String.fromCharCode(i + 97));
+    return [...s].map((string) => {
+        if(upper.includes(string)){
+            const index = upper.indexOf(string) + n;
+            if(index >= upper.length) return upper[index - upper.length];
+            else return upper[index];
+        }else if(lower.includes(string)){
+            const index = lower.indexOf(string) + n;
+            if(index >= lower.length) return lower[index - lower.length];
+            else return lower[index];
+        }else return " ";
+    }).join(", ").replaceAll(", ", "");
 }
