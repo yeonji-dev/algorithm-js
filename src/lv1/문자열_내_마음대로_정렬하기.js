@@ -25,10 +25,10 @@ export const input = [
 export const run = (strings, n) => {
     const answer = [];
     const sortedStrings = strings.sort();
-    const criArr = strings.map((string) => [...string][n]).sort();
+    const criArr = strings.map((string) => string[n]).sort();
     const uniqueCriArray = [...new Set(criArr)];
     uniqueCriArray.forEach((cri) => {
-        const filter = sortedStrings.filter((string) => [...string][n] === cri);
+        const filter = sortedStrings.filter((string) => string[n] === cri);
         answer.push(...filter);
     });
 
